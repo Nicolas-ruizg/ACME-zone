@@ -17,6 +17,7 @@ public class Guardia extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,7 +35,7 @@ public class Guardia extends javax.swing.JFrame {
         btnAnotaciones = new javax.swing.JButton();
         btnRegistroVehiculo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        Controlpestanas = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -43,7 +44,7 @@ public class Guardia extends javax.swing.JFrame {
         documentoRegistro = new javax.swing.JTextField();
         tipoDocumentoRegistro = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblRegistrarEntrada = new javax.swing.JTable();
         btnRegitrar = new javax.swing.JButton();
         btnCancelarRegistro = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -56,7 +57,7 @@ public class Guardia extends javax.swing.JFrame {
         btnRegitrarSalida = new javax.swing.JButton();
         btnCancelarRegistroSalida = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblRegistrarSalida = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         registroPlaca = new javax.swing.JTextField();
@@ -65,8 +66,21 @@ public class Guardia extends javax.swing.JFrame {
         btnCancelarRegistro2 = new javax.swing.JButton();
         btnRegitrarVehiculo = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tblRegistroVehiculo = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        documentoAnotaciones = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        tipoDocumentoRegistroSalida1 = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        nombreAnotaciones = new javax.swing.JTextField();
+        btnCancelar = new javax.swing.JButton();
+        btnAnotacion = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblAnotaciones = new javax.swing.JTable();
+        jLabel14 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        txtAnotaciones = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -78,6 +92,11 @@ public class Guardia extends javax.swing.JFrame {
         btnRegistrarEntrada.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnRegistrarEntrada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/entrada.png"))); // NOI18N
         btnRegistrarEntrada.setText("Registrar Entrada");
+        btnRegistrarEntrada.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegistrarEntradaMouseClicked(evt);
+            }
+        });
         btnRegistrarEntrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarEntradaActionPerformed(evt);
@@ -87,6 +106,11 @@ public class Guardia extends javax.swing.JFrame {
         btnRegistrarSalida.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnRegistrarSalida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salida.png"))); // NOI18N
         btnRegistrarSalida.setText("Registar Salida");
+        btnRegistrarSalida.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegistrarSalidaMouseClicked(evt);
+            }
+        });
         btnRegistrarSalida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarSalidaActionPerformed(evt);
@@ -96,10 +120,20 @@ public class Guardia extends javax.swing.JFrame {
         btnAnotaciones.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAnotaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo.png"))); // NOI18N
         btnAnotaciones.setText("Anotaciones");
+        btnAnotaciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAnotacionesMouseClicked(evt);
+            }
+        });
 
         btnRegistroVehiculo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnRegistroVehiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/carro.png"))); // NOI18N
         btnRegistroVehiculo.setText("Registro Vehiculo");
+        btnRegistroVehiculo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegistroVehiculoMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -153,22 +187,19 @@ public class Guardia extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblRegistrarEntrada.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Nombre", "Documento", "Tipo Documento"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(30);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(30);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(30);
+        jScrollPane1.setViewportView(tblRegistrarEntrada);
+        if (tblRegistrarEntrada.getColumnModel().getColumnCount() > 0) {
+            tblRegistrarEntrada.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tblRegistrarEntrada.getColumnModel().getColumn(1).setPreferredWidth(30);
+            tblRegistrarEntrada.getColumnModel().getColumn(2).setPreferredWidth(30);
         }
 
         btnRegitrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/GuardarTodo.png"))); // NOI18N
@@ -189,15 +220,15 @@ public class Guardia extends javax.swing.JFrame {
                         .addComponent(btnRegitrar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(88, 88, 88)
                         .addComponent(btnCancelarRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 551, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 865, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(23, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nombreRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(documentoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -220,16 +251,16 @@ public class Guardia extends javax.swing.JFrame {
                     .addComponent(nombreRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(documentoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tipoDocumentoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52)
+                .addGap(58, 58, 58)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegitrar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelarRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(64, 64, 64)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("tab1", jPanel2);
+        Controlpestanas.addTab("tab1", jPanel2);
 
         jLabel8.setText("Nombre");
 
@@ -250,22 +281,19 @@ public class Guardia extends javax.swing.JFrame {
         btnCancelarRegistroSalida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png"))); // NOI18N
         btnCancelarRegistroSalida.setText("Cancelar");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblRegistrarSalida.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Nombre", "Documento", "Tipo Documento"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(0).setPreferredWidth(30);
-            jTable2.getColumnModel().getColumn(1).setPreferredWidth(30);
-            jTable2.getColumnModel().getColumn(2).setPreferredWidth(30);
+        jScrollPane2.setViewportView(tblRegistrarSalida);
+        if (tblRegistrarSalida.getColumnModel().getColumnCount() > 0) {
+            tblRegistrarSalida.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tblRegistrarSalida.getColumnModel().getColumn(1).setPreferredWidth(10);
+            tblRegistrarSalida.getColumnModel().getColumn(2).setPreferredWidth(10);
         }
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -324,7 +352,7 @@ public class Guardia extends javax.swing.JFrame {
                 .addContainerGap(65, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("tab2", jPanel3);
+        Controlpestanas.addTab("tab2", jPanel3);
 
         jLabel6.setText("Numero de placa");
 
@@ -352,22 +380,19 @@ public class Guardia extends javax.swing.JFrame {
             }
         });
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tblRegistroVehiculo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Nombre", "Documento", "Tipo Documento"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
-        if (jTable3.getColumnModel().getColumnCount() > 0) {
-            jTable3.getColumnModel().getColumn(0).setPreferredWidth(30);
-            jTable3.getColumnModel().getColumn(1).setPreferredWidth(30);
-            jTable3.getColumnModel().getColumn(2).setPreferredWidth(30);
+        jScrollPane3.setViewportView(tblRegistroVehiculo);
+        if (tblRegistroVehiculo.getColumnModel().getColumnCount() > 0) {
+            tblRegistroVehiculo.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tblRegistroVehiculo.getColumnModel().getColumn(1).setPreferredWidth(30);
+            tblRegistroVehiculo.getColumnModel().getColumn(2).setPreferredWidth(30);
         }
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -412,32 +437,129 @@ public class Guardia extends javax.swing.JFrame {
                 .addGap(48, 48, 48))
         );
 
-        jTabbedPane1.addTab("tab3", jPanel4);
+        Controlpestanas.addTab("tab3", jPanel4);
+
+        jLabel11.setText("Documento");
+
+        jLabel12.setText("Tipo Documento");
+
+        tipoDocumentoRegistroSalida1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "C.C", "T.I", "Cedula de Extranjeria", "Pasaporte" }));
+        tipoDocumentoRegistroSalida1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoDocumentoRegistroSalida1ActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Nombre");
+
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/eliminar.png"))); // NOI18N
+        btnCancelar.setText("Cancelar");
+
+        btnAnotacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/GuardarTodo.png"))); // NOI18N
+        btnAnotacion.setText("Registrar");
+
+        tblAnotaciones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Documento", "Tipo Documento", "Anotaciones"
+            }
+        ));
+        jScrollPane4.setViewportView(tblAnotaciones);
+        if (tblAnotaciones.getColumnModel().getColumnCount() > 0) {
+            tblAnotaciones.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tblAnotaciones.getColumnModel().getColumn(1).setPreferredWidth(10);
+            tblAnotaciones.getColumnModel().getColumn(2).setPreferredWidth(10);
+            tblAnotaciones.getColumnModel().getColumn(3).setPreferredWidth(40);
+        }
+
+        jLabel14.setText("Anotación");
+
+        txtAnotaciones.setColumns(20);
+        txtAnotaciones.setRows(5);
+        jScrollPane5.setViewportView(txtAnotaciones);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 910, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 865, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnAnotacion, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(documentoAnotaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(84, 84, 84)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tipoDocumentoRegistroSalida1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(113, 113, 113)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nombreAnotaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 469, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(documentoAnotaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tipoDocumentoRegistroSalida1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nombreAnotaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel14)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAnotacion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
 
-        jTabbedPane1.addTab("tab4", jPanel5);
+        Controlpestanas.addTab("tab4", jPanel5);
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 910, 500));
+        getContentPane().add(Controlpestanas, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 910, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarSalidaActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnRegistrarSalidaActionPerformed
 
     private void btnRegistrarEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEntradaActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_btnRegistrarEntradaActionPerformed
 
     private void tipoDocumentoRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoDocumentoRegistroActionPerformed
@@ -459,6 +581,28 @@ public class Guardia extends javax.swing.JFrame {
     private void btnRegitrarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegitrarVehiculoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegitrarVehiculoActionPerformed
+
+    private void tipoDocumentoRegistroSalida1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoDocumentoRegistroSalida1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipoDocumentoRegistroSalida1ActionPerformed
+
+    private void btnRegistrarEntradaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarEntradaMouseClicked
+       Controlpestanas.setSelectedIndex(0);
+    }//GEN-LAST:event_btnRegistrarEntradaMouseClicked
+
+    private void btnRegistrarSalidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarSalidaMouseClicked
+       Controlpestanas.setSelectedIndex(1);
+    }//GEN-LAST:event_btnRegistrarSalidaMouseClicked
+
+    private void btnRegistroVehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistroVehiculoMouseClicked
+       Controlpestanas.setSelectedIndex(2);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistroVehiculoMouseClicked
+
+    private void btnAnotacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnotacionesMouseClicked
+       Controlpestanas.setSelectedIndex(3);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAnotacionesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -496,7 +640,10 @@ public class Guardia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane Controlpestanas;
+    private javax.swing.JButton btnAnotacion;
     private javax.swing.JButton btnAnotaciones;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnCancelarRegistro;
     private javax.swing.JButton btnCancelarRegistro2;
     private javax.swing.JButton btnCancelarRegistroSalida;
@@ -506,10 +653,15 @@ public class Guardia extends javax.swing.JFrame {
     private javax.swing.JButton btnRegitrar;
     private javax.swing.JButton btnRegitrarSalida;
     private javax.swing.JButton btnRegitrarVehiculo;
+    private javax.swing.JTextField documentoAnotaciones;
     private javax.swing.JTextField documentoRegistro;
     private javax.swing.JTextField documentoRegistroSalida;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -526,15 +678,20 @@ public class Guardia extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTextField nombreAnotaciones;
     private javax.swing.JTextField nombreRegistro;
     private javax.swing.JTextField nombreRegistroSalida;
     private javax.swing.JTextField registroPlaca;
     private javax.swing.JTextField registroVehiculoMarca;
+    private javax.swing.JTable tblAnotaciones;
+    private javax.swing.JTable tblRegistrarEntrada;
+    private javax.swing.JTable tblRegistrarSalida;
+    private javax.swing.JTable tblRegistroVehiculo;
     private javax.swing.JComboBox<String> tipoDocumentoRegistro;
     private javax.swing.JComboBox<String> tipoDocumentoRegistroSalida;
+    private javax.swing.JComboBox<String> tipoDocumentoRegistroSalida1;
+    private javax.swing.JTextArea txtAnotaciones;
     // End of variables declaration//GEN-END:variables
 }
