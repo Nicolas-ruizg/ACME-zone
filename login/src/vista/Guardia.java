@@ -75,9 +75,7 @@ public class Guardia extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logo1.png"))); // NOI18N
 
-        btnRegistrarEntrada.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistrarEntrada.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnRegistrarEntrada.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistrarEntrada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/entrada.png"))); // NOI18N
         btnRegistrarEntrada.setText("Registrar Entrada");
         btnRegistrarEntrada.addActionListener(new java.awt.event.ActionListener() {
@@ -86,9 +84,7 @@ public class Guardia extends javax.swing.JFrame {
             }
         });
 
-        btnRegistrarSalida.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistrarSalida.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnRegistrarSalida.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistrarSalida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salida.png"))); // NOI18N
         btnRegistrarSalida.setText("Registar Salida");
         btnRegistrarSalida.addActionListener(new java.awt.event.ActionListener() {
@@ -97,15 +93,11 @@ public class Guardia extends javax.swing.JFrame {
             }
         });
 
-        btnAnotaciones.setBackground(new java.awt.Color(255, 255, 255));
         btnAnotaciones.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnAnotaciones.setForeground(new java.awt.Color(0, 0, 0));
         btnAnotaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo.png"))); // NOI18N
         btnAnotaciones.setText("Anotaciones");
 
-        btnRegistroVehiculo.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistroVehiculo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnRegistroVehiculo.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistroVehiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/carro.png"))); // NOI18N
         btnRegistroVehiculo.setText("Registro Vehiculo");
 
@@ -354,6 +346,11 @@ public class Guardia extends javax.swing.JFrame {
 
         btnRegitrarVehiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/GuardarTodo.png"))); // NOI18N
         btnRegitrarVehiculo.setText("Registrar");
+        btnRegitrarVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegitrarVehiculoActionPerformed(evt);
+            }
+        });
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -458,6 +455,10 @@ public class Guardia extends javax.swing.JFrame {
     private void btnCancelarRegistro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarRegistro2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarRegistro2ActionPerformed
+
+    private void btnRegitrarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegitrarVehiculoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegitrarVehiculoActionPerformed
 
     /**
      * @param args the command line arguments
